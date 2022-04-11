@@ -2,9 +2,7 @@
 
 function isValidIP(str) {
   const valid = /^((25[0-5]|(2[0-4]|1\d|[1-9]|)\d)(\.(?!$)|$)){4}$/.test(str);
-  if (!valid) return false;
-  const arr = str.split('.');
-  return arr.every(x => Number(x) < 256);
+  return valid;
 }
 
 isValidIP('0.0.0.0');
@@ -22,5 +20,5 @@ isValidIP('1e0.1e1.1e2.2e2');
 isValidIP(' 1.2.3.4');
 isValidIP('1.2.3.4 ');
 isValidIP('12.34.56.-7');
-// isValidIP('1.2.3.4\n');
-// isValidIP('\n1.2.3.4');
+isValidIP('1.2.3.4\n');
+isValidIP('\n1.2.3.4');
